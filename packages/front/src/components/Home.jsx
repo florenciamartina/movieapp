@@ -1,0 +1,74 @@
+import React, {useEffect, useState} from 'react';
+import Movie from './Movie'
+
+const NOW_PLAYING_API = "https://api.themoviedb.org/3/movie/now_playing?api_key=269942df022fac8e94e126c0e90c61ee"
+const TOP_TEN_API = "https://api.themoviedb.org/3/movie/top_rated?api_key=269942df022fac8e94e126c0e90c61ee"
+const FEATURED_API = "https://api.themoviedb.org/3/discover/movie?api_key=269942df022fac8e94e126c0e90c61ee&sort_by=popularity.desc"
+const SEARCH_API = "https://api.themoviedb.org/3/search/movie?api_key=269942df022fac8e94e126c0e90c61ee&query="
+
+function Home(props) {
+    
+    const [movies, setMovies] = useState([]);
+    const [topTen, setTopTen] = useState([]);
+    const [nowPlaying, setNowPlaying] = useState([]);
+
+    const getMovies = (API) => {
+        fetch(API)
+        .then((res) => res.json())
+        .then((data) => {
+          setMovies(data.results);
+        });
+      };
+  
+      const getTopTenMovies = () => {
+        fetch(TOP_TEN_API)
+        .then((res) => res.json())
+        .then((data) => {
+          setTopTen(data.results);
+        });
+      }
+  
+      const getNowPlayingMovies = () => {
+        fetch(NOW_PLAYING_API)
+        .then((res) => res.json())
+        .then((data) => {
+          setNowPlaying(data.results);
+        });
+      }
+  
+      useEffect(() => {
+          getTopTenMovies();
+          getMovies(FEATURED_API);
+          getNowPlayingMovies();
+        }, [])
+
+    return (
+        <div>
+            {/* Now Playing Movies */}
+            <h2 className="movie-header">Now Playing</h2>
+            <div className="movie-container">
+                {nowPlaying.length > 0 && nowPlaying.map((movie) => (
+                    <Movie key={movie.id} {...movie}/>
+                ))}
+            </div>
+
+            {/* Top 10 Picks */}
+            <h2 className="movie-header">Top 10 Picks</h2>
+            <div className="movie-container">
+                {topTen.length > 0 && topTen.slice(0, 10).map((movie) => (
+                    <Movie key={movie.id} {...movie}/>
+                ))}
+            </div>
+
+            {/* Featured Movie */}
+            <h2 className="movie-header">Featured</h2>
+            <div className="movie-container">
+                {movies.length > 0 && movies.map((movie) => (
+                    <Movie key={movie.id} {...movie}/>
+                ))}
+            </div>  
+        </div>
+    )
+}
+
+export default Home;

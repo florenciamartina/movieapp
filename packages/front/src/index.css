@@ -23,7 +23,20 @@ header {
     justify-content: space-between;
 }
 
-.home {
+.menu-category {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.genre-container {
+    display: grid;
+    grid-template-columns: 80px 80px 80px;
+    grid-template-rows: 20px 20px 20px; 
+    justify-content: stretch;
+    justify-self: start;
+}
+
+.menu-choice {
     background-color: inherit;
     border:none;
     text-align:center;
@@ -34,21 +47,21 @@ header {
 
 }
 
-.home:hover {
+.menu-choice:hover {
     color: #9298a1;
 }
 
-.home:focus {
+.menu-choice:focus {
     outline: none;
 }
 
 .search {
     background-color: transparent;
-    border: 2px solid white;
+    border: 1px solid white;
     border-radius: 50px;
     color: white;
     font-family: inherit;
-    font-size: 1.2rem;
+    font-size: 1rem;
     padding: 0.5rem 1.5rem;
 
 }
@@ -109,6 +122,75 @@ header {
 .movie:hover .movie-overview {
     transform: translateY(0%);
 }
+
+.movie-header {
+    font-family: inherit;
+    font-weight: bolder;
+    padding-top : 1rem;
+    padding-left : 1rem;
+}
+
+.menu {
+    background: inherit;
+    border-radius: 8px;
+    position: absolute;
+    padding:1rem;
+    transform: translateY(-20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+
+}
+
+.menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  
+  .menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .menu li {
+    border-bottom: 1px solid #dddddd;
+  }
+  
+  .menu li a {
+    text-decoration: none;
+    color: #333333;
+    padding: 15px 20px;
+    display: block;
+  }
+
+  .menu-trigger {
+    background: #ffffff;
+    border-radius: 90px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    border: none;
+    vertical-align: middle;
+    transition: box-shadow 0.4s ease;
+  }
+  
+  .menu-trigger:hover {
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .menu-trigger span {
+    font-weight: 700;
+    vertical-align: middle;
+    font-size: 14px;
+    margin: 0 10px;
+  }
+  
+  .menu-trigger img {
+    border-radius: 90px;
+  }
 
 .tag {
     background-color: black;
