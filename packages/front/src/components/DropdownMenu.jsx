@@ -2,10 +2,10 @@ import React, {useRef, useState, useEffect} from 'react'
 
 const MOVIE_GENRE_API = "https://api.themoviedb.org/3/genre/movie/list?api_key=269942df022fac8e94e126c0e90c61ee&language=en-US"
 
-
-function DropdownMenu() {
+function DropdownMenu({setGenre}) {
     const dropdownRef = useRef(null);
     const [isActive, setIsActive] = useState(false);
+    const [genreID, setGenreID] = useState();
     const [movieGenres, setMovieGenres] = useState([]); 
     const onClick = () => setIsActive(!isActive);
 
@@ -19,21 +19,16 @@ function DropdownMenu() {
     
     useEffect(() => {
         getMovieGenres();
-        console.log("movie genres:", movieGenres);
     }, [])
-  
+
+
     return (
-      <div className="menu-container">
-        <button onClick={onClick} className="menu-trigger">
-        </button>
-        <nav className="genre-container"ref={dropdownRef} className={`menu ${isActive ? 'active' : 'inactive'}`}>
-            <select>
+        <select onChange={(e) => setGenre(e.target.value)}>
             {movieGenres.length > 0 && movieGenres.map((genre) => (
-                <option key={genre.id}>{genre.name}</option>
+                <option key={genre.id} value={genre.id}>{genre.name}</option>
             ))}
-          </select>
-        </nav>
-      </div>
+        </select>
+     
     );
   };
 

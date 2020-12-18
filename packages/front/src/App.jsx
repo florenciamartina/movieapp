@@ -5,6 +5,7 @@ import {
 } from 'react-router-dom';
 import Home from './components/Home';
 import Films from './components/Films';
+import Series from './components/Series';
 import Movie from './components/Movie';
 import Nav from './components/Nav'
 
@@ -25,6 +26,7 @@ function App() {
       });
     };
 
+
     const handleOnSubmit = (e) => {
       e.preventDefault();
       
@@ -40,7 +42,6 @@ function App() {
     }
 
     return (
-      <>
         <Router>
           <Nav
               handleOnChange={handleOnChange}
@@ -49,27 +50,22 @@ function App() {
               searchTerm={searchTerm}
           />      
 
-          {!isSearch && (
-            <>
-              <Route exact path="/films">
-                <Films />
-              </Route>   
+          <Route exact path="/films">
+            <Films />
+          </Route>   
 
-              <Route exact path="/">
-                <Home />
-              </Route>
-            </>
-          )}
-            
-          <div className="movie-container">
-            {searchResult.length > 0 && searchResult.map((movie) => (
-              <Movie key={movie.id} {...movie}/>
-            ))}
-          </div>
+          <Route exact path="/series">
+            <Series />
+          </Route>   
+
+          <Route exact path="/">
+            <Home 
+              searchResult={searchResult}
+              isSearch={isSearch}
+            />
+          </Route>
         
         </Router>
-
-      </>
     );
 }
 
