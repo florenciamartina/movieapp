@@ -11,6 +11,7 @@ function Home(props) {
     const [movies, setMovies] = useState([]);
     const [topTen, setTopTen] = useState([]);
     const [nowPlaying, setNowPlaying] = useState([]);
+    const [isNowPlaying, setIsNowPlaying] = useState(false);
 
     const getMovies = (API) => {
         fetch(API)

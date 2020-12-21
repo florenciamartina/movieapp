@@ -120,25 +120,48 @@ select {
 }
 
 .movie-overview {
-    background-color: white;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-    box-shadow: 0 -3px 5px rgba(0, 0, 0, 0.1);
+    background-color: black;
+    padding:50px;
+    border-radius: 10px;
     position: absolute;
-    color: black;
-    padding: 1rem;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    overflow: auto;
-    max-height:100%;
-    transform: translateY(102%);
-    transition: transform 0.3s ease-in-out
+    display:flex;
+    overflow:auto;
+    transition: all 5s ease-in-out;    
+    width: 50%;
+    height: 90%;
+    top: 5%;
+    left:25%;
+    font-size: small;
 }
+
+.movie-overview-container {
+    display: flex;
+}
+
+/* .movie-cast::before {
+    content: " • ";      
+    color : white;  
+    position: absolute; 
+} */
+
+.movie-overview-info {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: small;
+    position: relative;
+}
+
+.overview-img {
+    width: 40%;
+    height: 40%;
+    margin-right: 50px;
+}
+
 
 .movie:hover .movie-overview {
     transform: translateY(0%);
 }
+
 
 .movie-header {
     font-family: inherit;

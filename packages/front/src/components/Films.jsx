@@ -1,15 +1,16 @@
 import React, {useEffect, useState} from 'react';
 import Movie from './Movie'
 import DropdownMenu from './DropdownMenu'
-
+import Pagination from './Pagination';
 
 
 function Films() {
     
     const [films, setFilms] = useState([]);
     const [genre, setGenre] = useState(28);
-    const MOVIE_GENRE_API = `https://api.themoviedb.org/3/discover/movie?api_key=269942df022fac8e94e126c0e90c61ee&with_genres=${genre}`
-    const MOVIE_API = `https://api.themoviedb.org/3/discover/movie?api_key=269942df022fac8e94e126c0e90c61ee`
+    const [showPagination, setShowPagination] = useState(true);
+    const [currentPage, setCurrentPage] = useState(1);
+    const MOVIE_GENRE_API = `https://api.themoviedb.org/3/discover/movie?api_key=269942df022fac8e94e126c0e90c61ee&with_genres=${genre}&page=${currentPage}`
     
     
     const setID = (id) => {
@@ -25,9 +26,18 @@ function Films() {
         });
     }
 
+    const newPage = (direction) => {
+        if (direction === "next") {
+            setCurrentPage(currentPage + 1);
+            console.log("current page", currentPage);
+        } else if (direction === "previous" && currentPage != 1) {
+            setCurrentPage(currentPage - 1);
+        }
+    }
+
     useEffect(() => {
         getAllFilms();
-      }, [])
+      }, [currentPage, genre])
 
     return (
         <div>
@@ -42,6 +52,10 @@ function Films() {
                     <Movie key={movie.id} {...movie}/>
                 ))}
             </div>
+            <Pagination 
+                newPage={(d) => newPage(d)}
+                showPagination={showPagination}                
+            />
         </div>
     )
 }
