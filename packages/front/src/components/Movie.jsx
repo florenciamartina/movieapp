@@ -57,7 +57,7 @@ function Movie({id, title, poster_path, overview, vote_average}) {
                     onRequestClose={() => setModalIsOpen(false)}
                 >
                     <div>
-                        <button onClick={() => setModalIsOpen(false)}>X</button>
+                        <button className="close" onClick={() => setModalIsOpen(false)}></button>
                         <div className="movie-overview-container">
                             <img className="overview-img" src={IMG_API + poster_path} alt ={title}/>
 

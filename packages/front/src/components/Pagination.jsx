@@ -9,10 +9,10 @@ function Pagination({showPagination, newPage}) {
     return (
         <div>
             {showPagination && (
-                <>
-                    <button onClick={() => handlePage("previous")}>Previous</button>
-                    <button onClick={() => handlePage("next")}>Next</button>
-                </>
+                <div className="page-container">
+                    <button className="prev-next" onClick={() => handlePage("previous")}>Previous</button>
+                    <button className="prev-next" onClick={() => handlePage("next")}>Next</button>
+                </div>
             )}
         </div>
     )
