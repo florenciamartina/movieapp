@@ -6,39 +6,26 @@ import {
 import Home from './components/Home';
 import Films from './components/Films';
 import Series from './components/Series';
-import Movie from './components/Movie';
 import Nav from './components/Nav'
+import SearchResult from './components/SearchResult';
 
-const SEARCH_GENRE_API = "https://api.themoviedb.org/3/discover/movie?api_key=###&language=en-US&sort_by=popularity.desc&include_adult=true&include_video=false&page=1&with_genres="
-const SEARCH_API = "https://api.themoviedb.org/3/search/movie?api_key=269942df022fac8e94e126c0e90c61ee&query="
 
 function App() {  
-    const [movies, setMovies] = useState([]);
-    const [isSearch, setIsSearch] = useState(false);
-    const [searchResult, setSearchResult] = useState([]);
-    const [searchTerm, setSearchTerm] = useState("");
+  const [searchKeyword, setSearchKeyword] = useState("");
+  const [searchResult, setSearchResult] = useState([]);
 
-    const getMovies = (API) => {
-      fetch(API)
-      .then((res) => res.json())
-      .then((data) => {
-        setSearchResult(data.results);
-      });
-    };
-
-
+   
     const handleOnSubmit = (e) => {
       e.preventDefault();
       
-      if (searchTerm) {
-        getMovies(SEARCH_API + searchTerm);
-        setIsSearch(true);
-        setSearchTerm("");
+      if (searchKeyword) {
+        setSearchKeyword("");
       }
     };
 
     const handleOnChange = (e) => {
-      setSearchTerm(e.target.value);
+      setSearchKeyword(e.target.value);
+      console.log(searchKeyword);
     }
 
     return (
@@ -46,8 +33,7 @@ function App() {
           <Nav
               handleOnChange={handleOnChange}
               handleOnSubmit={handleOnSubmit}
-              setIsSearch={setIsSearch}
-              searchTerm={searchTerm}
+              searchKeyword={searchKeyword}
           />      
 
           <Route exact path="/films">
@@ -58,12 +44,16 @@ function App() {
             <Series />
           </Route>   
 
-          <Route exact path="/">
-            <Home 
+          <Route exact path="/search">
+            <SearchResult
+              searchKeyword={searchKeyword}
               searchResult={searchResult}
-              isSearch={isSearch}
             />
-          </Route>
+          </Route> 
+
+          <Route exact path="/">
+            <Home />
+          </Route>         
         
         </Router>
     );

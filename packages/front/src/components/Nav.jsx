@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 function Nav(props) {
     const [show, handleShow] = useState(false);
+    const [isSearching, setIsSearching] = useState(false);
 
     useEffect(() => {
         window.addEventListener('scroll', () => {
@@ -24,7 +25,7 @@ function Nav(props) {
 
           <div className="menu-category">
             <Link to="/" >
-                <button className="menu-choice" onClick={props.setIsSearch(false)}>
+                <button className="menu-choice">
                     Home
                 </button>
             </Link>
@@ -40,17 +41,20 @@ function Nav(props) {
                     Series
                 </button>            
             </Link>
-          </div>
 
-          {/* Search */}
-          <form onSubmit={props.handleOnSubmit}>
-            <input className="search"
-              type="search" 
-              placeholder="Search..."
-              value={props.searchTerm}
-              onChange={props.handleOnChange}
-            />
-          </form>
+          </div>
+            <Link to="/search" className="menu-choice"> 
+              {/* Search */}
+              <form onSubmit={props.handleOnSubmit}>
+                <input className="search"
+                  type="search" 
+                  placeholder="Search..."
+                  value={props.searchKeyword}
+                  onChange={props.handleOnChange}
+                />
+              </form>
+            </Link>
+
         </header>
     )
 }

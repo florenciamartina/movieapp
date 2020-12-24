@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import Movie from './Movie'
 import SeriesDropdownMenu from './SeriesDropdownMenu'
 import Pagination from './Pagination';
+import TvSeries from './TvSeries';
 
 
 function Series() {
@@ -40,8 +41,8 @@ function Series() {
             {/* All Movies */}
             <h2 className="movie-header">All TV Series</h2>
                 <div className="movie-container">
-                    {series.length > 0 && series.map((movie) => (
-                        <Movie key={movie.id} {...movie}/>
+                    {series.length > 0 && series.map((series) => (
+                        <TvSeries key={series.id} {...series}/>
                     ))}
                 </div>
                 <Pagination 
