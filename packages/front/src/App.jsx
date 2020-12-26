@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import {
   BrowserRouter as Router,
-  Route,
+  Route
 } from 'react-router-dom';
 import Home from './components/Home';
 import Films from './components/Films';
@@ -10,45 +10,21 @@ import Nav from './components/Nav'
 import SearchResult from './components/SearchResult';
 
 
-function App() {  
-  const [searchKeyword, setSearchKeyword] = useState("");
-  const [searchResult, setSearchResult] = useState([]);
-
-   
-    const handleOnSubmit = (e) => {
-      e.preventDefault();
-      
-      if (searchKeyword) {
-        setSearchKeyword("");
-      }
-    };
-
-    const handleOnChange = (e) => {
-      setSearchKeyword(e.target.value);
-      console.log(searchKeyword);
-    }
-
+function App() {
     return (
         <Router>
-          <Nav
-              handleOnChange={handleOnChange}
-              handleOnSubmit={handleOnSubmit}
-              searchKeyword={searchKeyword}
-          />      
+          <Nav />
 
           <Route exact path="/films">
             <Films />
-          </Route>   
+          </Route>
 
           <Route exact path="/series">
             <Series />
           </Route>   
 
           <Route exact path="/search">
-            <SearchResult
-              searchKeyword={searchKeyword}
-              searchResult={searchResult}
-            />
+            <SearchResult />
           </Route> 
 
           <Route exact path="/">
