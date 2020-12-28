@@ -9,8 +9,8 @@ function SearchResult(props) {
     const location = useLocation();
     const [currentPage, setCurrentPage] = useState(1);
     const [searchResult, setSearchResult] = useState([]);
-    const [tvSearchResult, setTVSearchResult] = useState([]);
     const [showPagination, setShowPagination] = useState(true);
+    const searchKeyword = location.state.queryKeyword;
 
     const newPage = (direction) => {
         if (direction === "next") {
@@ -22,7 +22,6 @@ function SearchResult(props) {
     }
 
     const getSearchResult = () => {
-        const searchKeyword = location.state.queryKeyword;
         fetch(`https://api.themoviedb.org/3/search/movie?api_key=269942df022fac8e94e126c0e90c61ee&query=${searchKeyword}&page=${currentPage}`)
         .then((res) => res.json())
         .then((data) => {
@@ -33,7 +32,7 @@ function SearchResult(props) {
 
     useEffect(() => {
         getSearchResult();
-    }, [searchResult, currentPage]);
+    }, [searchKeyword, currentPage]);
 
     return (
     

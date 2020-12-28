@@ -49,11 +49,6 @@ function Movie({id, title, poster_path, overview, vote_average}) {
         });
       };
 
-    const sliceContent= (arr) => {
-        let newContent = arr.slice(0, 3).join(", ");
-        return newContent;
-    }
-
     const PopUpBox = () => {
         return (
             <Modal className="movie-overview"
@@ -65,7 +60,9 @@ function Movie({id, title, poster_path, overview, vote_average}) {
                         <div className="movie-overview-container">
                             <div className="movie-poster-button">
                                 <img className="overview-img" src={IMG_API + poster_path} alt ={title}/>
-                                <button>Watch Now</button>
+                                {movieGenres.release_date >= "2020-01-01" && movieGenres.release_date <= "2020-12-31" && (
+                                    <button className="watch-button">Watch Now</button>)
+                                }
                             </div>
                             <div>
                                 <h2 className="overview-title">{title}</h2>

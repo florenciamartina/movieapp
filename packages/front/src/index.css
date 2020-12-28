@@ -235,6 +235,7 @@ select {
     font-family: 'Inter', sans-serif;
     font-weight: 300;
     margin-right: 5px;
+    margin-left:15px;
     font-size:18px;
 }
 
@@ -242,6 +243,7 @@ select {
     font-family: 'Inter', sans-serif;
     font-weight: 300;
     margin-right: 5px;
+    margin-left:15px;
     font-size:18px;
     margin-top:18px;
 }
@@ -253,7 +255,7 @@ select {
 }
 
 .overview-img {
-    width:  250px;
+    width:  300px;
     height: 100%;
 }
 
@@ -381,6 +383,19 @@ select {
   .close:after {
     transform: rotate(-45deg);
   }
+
+  .watch-button {
+      margin-top: 20px;
+      background-color: #F1F44D;
+      color: #250FA2;
+      border-radius: 15px;
+      border-color: transparent;
+      box-shadow: #F1F44D;
+      font-family: 'Inter', sans-serif;
+      font-size: 22px;
+      font-weight: 600;
+      padding:10px;
+    }
 
   .page-container {
       display: flex;
