@@ -13,7 +13,7 @@ import NowPlayingMovies from './NowPlayingMovies';
 
 function App() {
     return (
-        <Router >
+        <Router basename="/movieapp">
           <Nav />
 
           <Route exact path="/films">
