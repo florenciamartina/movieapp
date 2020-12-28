@@ -13,26 +13,26 @@ import NowPlayingMovies from './NowPlayingMovies';
 
 function App() {
     return (
-        <Router basename={'/movieapp'}>
+        <Router >
           <Nav />
 
-          <Route path={`${process.env.PUBLIC_URL}/films`}>
+          <Route path='/films'>
             <Films />
           </Route>
 
-          <Route path={`${process.env.PUBLIC_URL}/series`}>
+          <Route path='/series'>
             <Series />
           </Route>   
 
-          <Route path={`${process.env.PUBLIC_URL}/search`}>
+          <Route path='/search'>
             <SearchResult />
           </Route> 
 
-          <Route path={`${process.env.PUBLIC_URL}/now-playing`}>
+          <Route path='/now-playing'>
             <NowPlayingMovies />
           </Route>
 
-          <Route path={`${process.env.PUBLIC_URL}/`}>
+          <Route path='/'>
             <Home />
           </Route>         
         

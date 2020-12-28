@@ -27,24 +27,24 @@ function Nav() {
       }}>
 
       <div className="menu-category-container">
-        <Link to={`${process.env.PUBLIC_URL}/`} >
+        <Link to='/' >
           <img className="logo" src={logo}></img>
         </Link>
 
         <div className="menu-category">
-          <Link to={`${process.env.PUBLIC_URL}/`} >
+          <Link to='/' >
               <button className="menu-choice">
                   Home
               </button>
           </Link>
 
-          <Link to={`${process.env.PUBLIC_URL}/films`} className="menu-choice">
+          <Link to={'/films'} className="menu-choice">
               <button className="menu-choice">
                   Films
               </button>            
           </Link>
 
-          <Link to={`${process.env.PUBLIC_URL}/series`} className="menu-choice">
+          <Link to={'/series'} className="menu-choice">
               <button className="menu-choice">
                   Series
               </button>            
