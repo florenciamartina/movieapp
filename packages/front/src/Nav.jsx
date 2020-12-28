@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { Link, useHistory } from 'react-router-dom';
-
+import logo from '../src/resources/whale.png';
 function Nav() {
   const history = useHistory();
   const [show, handleShow] = useState(false);
@@ -26,6 +26,11 @@ function Nav() {
         backgroundColor: show ? 'transparent': '#22254b',
       }}>
 
+      <div className="menu-category-container">
+        <Link to="/" >
+          <img className="logo" src={logo}></img>
+        </Link>
+
         <div className="menu-category">
           <Link to="/" >
               <button className="menu-choice">
@@ -44,6 +49,7 @@ function Nav() {
                   Series
               </button>            
           </Link>
+        </div>
 
         </div>
           

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
-import DropdownMenu from './DropdownMenu';
-import Movie from './Movie';
+import DropdownMenu from '../src/components/DropdownMenu';
+import Movie from '../src/components/Movie';
 
 const NOW_PLAYING_API = "https://api.themoviedb.org/3/movie/now_playing?api_key=269942df022fac8e94e126c0e90c61ee"
 const TOP_TEN_API = "https://api.themoviedb.org/3/movie/top_rated?api_key=269942df022fac8e94e126c0e90c61ee&sort_by=vote_average.desc&primary_release_date.gte=2020-01-01&primary_release_date.lte=2020-12-31"
@@ -68,9 +68,7 @@ function Home(props) {
                 </div>
 
                 {/* Featured Movie */}
-                <Link to="/featured">
-                    <h2 className="movie-header-button">Featured</h2>
-                </Link>
+                <h2 className="movie-header">Featured</h2>
                 <div className="movie-container">
                     {movies.length > 0 && movies.map((movie) => (
                         <Movie key={movie.id} {...movie}/>

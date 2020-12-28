@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import Movie from './Movie'
-import DropdownMenu from './DropdownMenu'
-import Pagination from './Pagination';
+import Movie from '../src/components/Movie'
+import DropdownMenu from '../src/components/DropdownMenu';
+import Pagination from '../src/components/Pagination';
 
 
 function Films() {

@@ -1,9 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import Movie from './Movie'
-import Pagination from './Pagination';
+import Movie from './components/Movie'
+import Pagination from './components/Pagination';
 import { useLocation } from "react-router-dom";
-import Series from './Series';
-import TvSeries from './TvSeries';
+import TvSeries from './components/TvSeries';
 
 function SearchResult(props) {
     const location = useLocation();

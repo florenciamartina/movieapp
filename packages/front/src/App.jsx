@@ -3,11 +3,11 @@ import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom';
-import Home from './components/Home';
-import Films from './components/Films';
-import Series from './components/Series';
-import Nav from './components/Nav'
-import SearchResult from './components/SearchResult';
+import Home from './Home';
+import Films from './Films';
+import Series from './Series';
+import Nav from './Nav'
+import SearchResult from './SearchResult';
 import NowPlayingMovies from './NowPlayingMovies';
 
 

@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import Movie from './Movie'
-import SeriesDropdownMenu from './SeriesDropdownMenu'
-import Pagination from './Pagination';
-import TvSeries from './TvSeries';
+import Movie from '../src/components/Movie'
+import SeriesDropdownMenu from '../src/components/SeriesDropdownMenu'
+import Pagination from '../src/components/Pagination';
+import TvSeries from '../src/components/TvSeries';
 
 
 function Series() {
