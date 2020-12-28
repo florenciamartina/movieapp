@@ -17,7 +17,6 @@ const setVoteClass = (vote) => {
 function Movie({id, title, poster_path, overview, vote_average}) {
     const INFO_API = `https://api.themoviedb.org/3/movie/${id}?api_key=269942df022fac8e94e126c0e90c61ee&language=en-US`
     const CREDITS_API = `https://api.themoviedb.org/3/movie/${id}/credits?api_key=269942df022fac8e94e126c0e90c61ee&language=en-US`
-    const [isNowPlaying, setIsNowPlaying] = useState(false);
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [movieGenres, setMovieGenres] = useState({
         genres:'',
@@ -50,6 +49,11 @@ function Movie({id, title, poster_path, overview, vote_average}) {
         });
       };
 
+    const sliceContent= (arr) => {
+        let newContent = arr.slice(0, 3).join(", ");
+        return newContent;
+    }
+
     const PopUpBox = () => {
         return (
             <Modal className="movie-overview"
@@ -59,42 +63,56 @@ function Movie({id, title, poster_path, overview, vote_average}) {
                     <div>
                         <button className="close" onClick={() => setModalIsOpen(false)}></button>
                         <div className="movie-overview-container">
-                            <img className="overview-img" src={IMG_API + poster_path} alt ={title}/>
-
-                            <div className="movie-overview-text">
-                                <h2>Overview :</h2>
-                                <h3>{overview}</h3>
+                            <div className="movie-poster-button">
+                                <img className="overview-img" src={IMG_API + poster_path} alt ={title}/>
+                                <button>Watch Now</button>
+                            </div>
+                            <div>
+                                <h2 className="overview-title">{title}</h2>
+                                <div className="overview-header">
+                                    <h3 className="overview-header-info">{movieGenres.release_date.slice(0, 4)}</h3>
+                                    <div className="movie-rating-container">
+                                        <img className="star-icon" src="https://img.icons8.com/fluent/48/000000/star.png"/>
+                                        <h3 className="overview-header-info">{vote_average}</h3>
+                                    </div>
+                                    { movieGenres.genres.length > 0 &&
+                                        (<h3 className="overview-film-genre-info"> {
+                                            movieGenres.genres.slice(0,3).map(genre => genre.name).join(", ") }
+                                        </h3> )}
+                                    </div>
+                                <hr /> 
+                                <h3 className="overview-overview">{overview}</h3>
 
                                 <div className="movie-overview-info">
-                                    <h3>Director :&nbsp; </h3>
-                                    {movieCredits.cast.length > 0 && movieCredits.crew
-                                        .filter((crew) => crew.job==="Director")
-                                        .map((dir) => (
-                                        <h3 className="movie-cast">{dir.name},&nbsp;</h3>
-                                    ))}
+                                    <span className="overview-role">Director</span>
+                                    <div className="movie-cast-container">
+                                        { movieCredits.crew.length > 0 &&
+                                        (<h3 className="movie-cast"> {
+                                            movieCredits.crew.filter((crew) => crew.job==="Director")
+                                            .map(dir => dir.name).join(", ") }
+                                        </h3> )}
+                                    </div>
                                 </div>
 
                                 <div className="movie-overview-info">
-                                    <h3>Cast :&nbsp; </h3>
-                                    {movieCredits.cast.length > 0 && movieCredits.cast.slice(0,4).map((cast) => (
-                                        <h3 className="movie-cast">{cast.name},&nbsp;</h3>
-                                    ))}
+                                    <span className="overview-role">Cast</span>
+                                    <div className="movie-cast-container">
+                                        { movieCredits.cast.length > 0 &&
+                                        (<h3 className="movie-cast"> {
+                                            movieCredits.cast.slice(0,5).map(cast => cast.name).join(", ") } 
+                                        </h3> )}
+                                    </div>
                                 </div>
 
                                 <div className="movie-overview-info">
-                                    <h3>Writer :&nbsp; </h3>
-                                    {movieCredits.cast.length > 0 && movieCredits.crew
-                                        .filter((crew) => crew.job==="Writer")
-                                        .map((writer) => (
-                                        <h3 className="movie-cast">{writer.name},&nbsp;</h3>
-                                    ))}
-                                </div>
-
-                                <div className="movie-overview-info">
-                                    <h3>Genres : &nbsp;</h3>
-                                    {movieGenres.genres.length > 0 && movieGenres.genres.map((genre) => (
-                                        <h3>{genre.name},&nbsp;</h3>
-                                    ))}
+                                    <span className="overview-role">Writer</span>
+                                    <div className="movie-cast-container">   
+                                        { movieCredits.crew.length > 0 &&
+                                        (<h3 className="movie-cast"> {
+                                            movieCredits.crew.filter((crew) => crew.job==="Writer")
+                                            .map(writer => writer.name).join(", ") } 
+                                        </h3> )}                                    
+                                    </div>
                                 </div>
                             </div>
                         </div>

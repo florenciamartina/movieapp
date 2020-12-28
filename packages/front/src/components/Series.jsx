@@ -39,7 +39,7 @@ function Series() {
                 setGenreID={setGenreID}
             />
             {/* All Movies */}
-            <h2 className="movie-header">All TV Series</h2>
+            <h1 className="movie-header">Series</h1>
                 <div className="movie-container">
                     {series.length > 0 && series.map((series) => (
                         <TvSeries key={series.id} {...series}/>

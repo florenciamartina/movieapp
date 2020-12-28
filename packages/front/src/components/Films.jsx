@@ -46,7 +46,7 @@ function Films() {
                 setGenre={setGenre}
             />
             {/* All Movies */}
-            <h2 className="movie-header">All Movies</h2>
+            <h1 className="movie-header">Films</h1>
             <div className="movie-container">
                 {films.length > 0 && films.map((movie) => (
                     <Movie key={movie.id} {...movie}/>

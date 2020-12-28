@@ -2,11 +2,14 @@ import React, {useEffect, useState} from 'react';
 import Movie from './Movie'
 import Pagination from './Pagination';
 import { useLocation } from "react-router-dom";
+import Series from './Series';
+import TvSeries from './TvSeries';
 
 function SearchResult(props) {
     const location = useLocation();
     const [currentPage, setCurrentPage] = useState(1);
     const [searchResult, setSearchResult] = useState([]);
+    const [tvSearchResult, setTVSearchResult] = useState([]);
     const [showPagination, setShowPagination] = useState(true);
 
     const newPage = (direction) => {
@@ -27,6 +30,7 @@ function SearchResult(props) {
         })
     }
 
+
     useEffect(() => {
         getSearchResult();
     }, [searchResult, currentPage]);
@@ -40,6 +44,7 @@ function SearchResult(props) {
                         {searchResult.map((movie) => (
                             <Movie key={movie.id} {...movie}/>
                         ))}
+                        
                     </div>
                     <Pagination 
                         newPage={(d) => newPage(d)}

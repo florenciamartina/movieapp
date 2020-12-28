@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
 * {
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 body {
@@ -16,9 +18,19 @@ body {
      flex-direction: column;
 }
 
+ /* Hide scrollbar for Chrome, Safari and Opera */
+ .movie-overview::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .movie-overview {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  } 
+
 header {
     display : flex;
-    background-color:#22254b;
     padding: 1rem;
     justify-content: space-between;
 }
@@ -63,6 +75,7 @@ select {
     height:2rem;
     background-color:black;
     color:white;
+    font-size: medium;
     font-family: inherit;
     padding-left:0.2rem;
 }
@@ -80,6 +93,12 @@ select {
 
 .search:focus {
     outline: none;
+}
+
+.star-icon {
+    margin-top:18px;
+    margin-right:5px;
+    height: 20px;
 }
 
 .movie-container {
@@ -106,6 +125,7 @@ select {
 .movie img {
     width: 100%;
     height: 350px;
+    
 }
 
 .movie-info {
@@ -117,44 +137,124 @@ select {
 
 .movie-info h3 {
     margin: 0;
+    font-family: 'Inter', sans-serif;
+
+}
+
+.movie-poster-button {
+    display: flex;
+    flex-direction: column;
+    margin-right: 50px;
 }
 
 .movie-overview {
-    background-color: black;
+    background-color: #313131;
     padding:50px;
-    border-radius: 10px;
+    border-radius: 30px;
     position: absolute;
     display:flex;
-    overflow:auto;
+    overflow: auto;
     transition: all 5s ease-in-out;    
-    width: 50%;
+    width: 70%;
     height: 90%;
     top: 5%;
-    left:25%;
-    font-size: small;
+    left:15%;
 }
 
 .movie-overview-container {
     display: flex;
+    overflow: auto;
+
 }
 
-/* .movie-cast::before {
-    content: " • ";      
-    color : white;  
-    position: absolute; 
-} */
+.movie-cast {
+    margin-top:0;
+    margin-bottom: 5px;
+    font-weight: 300;
+}
+
 
 .movie-overview-info {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     font-size: small;
-    position: relative;
+}
+
+.movie-cast-container {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: small;
+    margin-bottom: 10px;
+}
+
+.movie-rating-container {
+    display: flex;
+    flex-wrap: wrap;
+    font-weight: 200;
+    margin-left: 20px;
+}
+
+.movie-genre-container {
+    display: flex;
+    flex-wrap: wrap;
+    font-weight: 200;
+    margin-left: 20px;
+}
+
+.overview-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 36px;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.overview-overview {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size:medium;
+    margin-top:20px;
+}
+
+.overview-header {
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top:0;
+}
+
+.overview-header-info {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    margin-right: 20px;
+    font-size:18px;
+}
+
+
+.overview-tv-genre-info {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    margin-right: 5px;
+    font-size:18px;
+}
+
+.overview-film-genre-info {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    margin-right: 5px;
+    font-size:18px;
+    margin-top:18px;
+}
+
+.overview-role {
+    color: #8B8B8B;
+    font-weight: 800;
+    font-size: 14px;
 }
 
 .overview-img {
-    width: 40%;
-    height: 40%;
-    margin-right: 50px;
+    width:  250px;
+    height: 100%;
 }
 
 
@@ -164,9 +264,10 @@ select {
 
 
 .movie-header {
-    font-family: inherit;
+    font-family: 'Inter', sans-serif;
     font-weight: bolder;
-    padding-top : 2rem;
+    font-size: 36px;
+    padding-top : 1rem;
     padding-left : 2rem;
 }
 

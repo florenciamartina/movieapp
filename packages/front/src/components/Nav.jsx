@@ -1,15 +1,14 @@
 import React, {useState, useEffect} from 'react'
 import { Link, useHistory } from 'react-router-dom';
 
-function Nav(props) {
+function Nav() {
   const history = useHistory();
   const [show, handleShow] = useState(false);
-  const [isSearching, setIsSearching] = useState(false);
   const [searchKeyword, setSearchKeyword] = useState("");
 
   useEffect(() => {
       window.addEventListener('scroll', () => {
-        if (window.scrollY > 100) {
+        if (window.scrollY > 5) {
           handleShow(true);
         } else {
           handleShow(false);
@@ -23,7 +22,9 @@ function Nav(props) {
   
 
   return (
-      <header>
+      <header style={{
+        backgroundColor: show ? 'transparent': '#22254b',
+      }}>
 
         <div className="menu-category">
           <Link to="/" >
@@ -60,7 +61,6 @@ function Nav(props) {
             }
           }}
         />
-
       </header>
   );
 }
