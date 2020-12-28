@@ -1,27 +1,3 @@
 {
-  "name": "petsos",
-  "version": "0.0.1",
-  "main": "index.js",
-  "author": "Florencia Martina",
-  "license": "MIT",
-  "scripts": {
-    "start": "lerna run start --stream",
-    "build:front": "(cd packages/front && yarn && yarn build)",
-    "start:front": "(cd packages/front && yarn start)",
-    "start:back": "(cd packages/back && yarn start)",
-    "migrate": "./seed.sh"
-  },
-  "engines": {
-    "node": "12.x"
-  },
-  "devDependencies": {
-    "husky": "^4.2.5",
-    "lerna": "^3.22.1",
-    "prettier": "^2.1.2"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npx lerna run --concurrency 1 --stream precommit"
-    }
-  }
+  "dependencies": {}
 }

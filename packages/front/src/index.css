@@ -434,6 +434,11 @@ select {
       padding:10px;
     }
 
+    .watch-button:hover{
+        scale: 0.99;
+        transition: all .2s ease-in-out;
+    }
+
   .page-container {
       display: flex;
       justify-content: center;
