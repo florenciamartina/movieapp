@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import Movie from './Movie'
+import { Link } from 'react-router-dom';
+import DropdownMenu from './DropdownMenu';
+import Movie from './Movie';
 
 const NOW_PLAYING_API = "https://api.themoviedb.org/3/movie/now_playing?api_key=269942df022fac8e94e126c0e90c61ee"
 const TOP_TEN_API = "https://api.themoviedb.org/3/movie/top_rated?api_key=269942df022fac8e94e126c0e90c61ee&sort_by=vote_average.desc&primary_release_date.gte=2020-01-01&primary_release_date.lte=2020-12-31"
@@ -48,7 +50,9 @@ function Home(props) {
         {!props.isSearch && (
             <div>
                 {/* Now Playing Movies */}
-                <h2 className="movie-header">Now Playing</h2>
+                <Link to="/now-playing">
+                    <button className="movie-header-button">Now Playing</button>
+                </Link>
                 <div className="movie-container">
                     {nowPlaying.length > 0 && nowPlaying.map((movie) => (
                         <Movie key={movie.id} {...movie}/>
@@ -64,7 +68,9 @@ function Home(props) {
                 </div>
 
                 {/* Featured Movie */}
-                <h2 className="movie-header">Featured</h2>
+                <Link to="/featured">
+                    <h2 className="movie-header-button">Featured</h2>
+                </Link>
                 <div className="movie-container">
                     {movies.length > 0 && movies.map((movie) => (
                         <Movie key={movie.id} {...movie}/>

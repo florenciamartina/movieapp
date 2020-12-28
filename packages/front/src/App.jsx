@@ -8,6 +8,7 @@ import Films from './components/Films';
 import Series from './components/Series';
 import Nav from './components/Nav'
 import SearchResult from './components/SearchResult';
+import NowPlayingMovies from './NowPlayingMovies';
 
 
 function App() {
@@ -26,6 +27,10 @@ function App() {
           <Route exact path="/search">
             <SearchResult />
           </Route> 
+
+          <Route exact path="/now-playing">
+            <NowPlayingMovies />
+          </Route>
 
           <Route exact path="/">
             <Home />

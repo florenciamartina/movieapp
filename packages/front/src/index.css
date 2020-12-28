@@ -273,6 +273,42 @@ select {
     padding-left : 2rem;
 }
 
+.movie-header-button {
+    font-family: 'Inter', sans-serif;
+    font-weight: bolder;
+    font-size: 36px;
+    text-decoration-line:none;
+    background-color: transparent;
+    border:none;
+    color: white;
+    padding-top : 2rem;
+    padding-left : 2rem;
+}
+
+.movie-header-button:link {
+    color: #9298a1;
+    font-weight: bolder;
+    text-decoration: none;
+
+} 
+
+.movie-header-button:visited {
+    color: #9298a1;
+    text-decoration: none;
+
+} 
+
+.movie-header-button:hover {
+    color: #9298a1;
+    font-weight: bolder;
+    text-decoration: none;
+
+} 
+
+.movie-header-button:active {
+    color: #9298a1;
+}   
+
 .menu {
     background: inherit;
     border-radius: 8px;
