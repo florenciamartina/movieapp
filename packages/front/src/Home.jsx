@@ -50,7 +50,7 @@ function Home(props) {
         {!props.isSearch && (
             <div>
                 {/* Now Playing Movies */}
-                <Link to='/now-playing'>
+                <Link to="/now-playing">
                     <button className="movie-header-button">Now Playing</button>
                 </Link>
                 <div className="movie-container">

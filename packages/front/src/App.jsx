@@ -16,23 +16,23 @@ function App() {
         <Router >
           <Nav />
 
-          <Route path='/films'>
+          <Route exact path="/films">
             <Films />
           </Route>
 
-          <Route path='/series'>
+          <Route exact path="/series">
             <Series />
           </Route>   
 
-          <Route path='/search'>
+          <Route exact path="/search">
             <SearchResult />
           </Route> 
 
-          <Route path='/now-playing'>
+          <Route exact path="/now-playing">
             <NowPlayingMovies />
           </Route>
 
-          <Route path='/'>
+          <Route exact path="/">
             <Home />
           </Route>         
         
