@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import Modal from 'react-modal';
 
-const IMG_API = "https://image.tmdb.org/t/p/w500";
 const setVoteClass = (vote) => {
     if (vote >= 8) {
         return "green";
@@ -13,6 +12,7 @@ const setVoteClass = (vote) => {
 }
 
 function Movie({id, title, poster_path, overview, vote_average}) {
+    const IMG_API = "https://image.tmdb.org/t/p/w500";
     const INFO_API = `https://api.themoviedb.org/3/movie/${id}?api_key=269942df022fac8e94e126c0e90c61ee&language=en-US`
     const CREDITS_API = `https://api.themoviedb.org/3/movie/${id}/credits?api_key=269942df022fac8e94e126c0e90c61ee&language=en-US`
     const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -59,7 +59,7 @@ function Movie({id, title, poster_path, overview, vote_average}) {
                             <div className="movie-poster-button">
                                 <img className="overview-img" src={IMG_API + poster_path} alt ={title}/>
                                 {movieGenres.release_date >= "2020-01-01" && movieGenres.release_date <= "2020-12-31" && (
-                                    <button className="watch-button">Watch Now</button>)
+                                    <button className="book-button">Book Ticket</button>)
                                 }
                             </div>
                             <div>

@@ -1,19 +1,16 @@
 import React, {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
-import DropdownMenu from '../src/components/DropdownMenu';
 import Movie from '../src/components/Movie';
 
-const NOW_PLAYING_API = "https://api.themoviedb.org/3/movie/now_playing?api_key=269942df022fac8e94e126c0e90c61ee"
-const TOP_TEN_API = "https://api.themoviedb.org/3/movie/top_rated?api_key=269942df022fac8e94e126c0e90c61ee&sort_by=vote_average.desc&primary_release_date.gte=2020-01-01&primary_release_date.lte=2020-12-31"
-const FEATURED_API = "https://api.themoviedb.org/3/discover/movie?api_key=269942df022fac8e94e126c0e90c61ee&sort_by=popularity.desc"
-const SEARCH_API = "https://api.themoviedb.org/3/search/movie?api_key=269942df022fac8e94e126c0e90c61ee&query="
 
 function Home(props) {
     
+    const NOW_PLAYING_API = "https://api.themoviedb.org/3/movie/now_playing?api_key=269942df022fac8e94e126c0e90c61ee"
+    const TOP_TEN_API = "https://api.themoviedb.org/3/movie/top_rated?api_key=269942df022fac8e94e126c0e90c61ee&sort_by=vote_average.desc&primary_release_date.gte=2020-01-01&primary_release_date.lte=2020-12-31"
+    const FEATURED_API = "https://api.themoviedb.org/3/discover/movie?api_key=269942df022fac8e94e126c0e90c61ee&sort_by=popularity.desc"
     const [movies, setMovies] = useState([]);
     const [topTen, setTopTen] = useState([]);
     const [nowPlaying, setNowPlaying] = useState([]);
-    const [isNowPlaying, setIsNowPlaying] = useState(false);
 
     const getMovies = (API) => {
         fetch(API)

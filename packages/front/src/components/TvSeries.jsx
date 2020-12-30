@@ -1,8 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import Modal from 'react-modal';
 
-const IMG_API = "https://image.tmdb.org/t/p/w500";
-const TV_GENRE_API = "https://api.themoviedb.org/3/genre/tv/list?api_key=269942df022fac8e94e126c0e90c61ee&language=en-US"
 
 const setVoteClass = (vote) => {
     if (vote >= 8) {
@@ -15,6 +13,7 @@ const setVoteClass = (vote) => {
 }
 
 function TvSeries({id, name, poster_path, overview, vote_average}) {
+    const IMG_API = "https://image.tmdb.org/t/p/w500";
     const INFO_API = `https://api.themoviedb.org/3/tv/${id}?api_key=269942df022fac8e94e126c0e90c61ee&language=en-US`
     const CREDITS_API = `https://api.themoviedb.org/3/tv/${id}/credits?api_key=269942df022fac8e94e126c0e90c61ee&language=en-US`
     const [isNowPlaying, setIsNowPlaying] = useState(false);

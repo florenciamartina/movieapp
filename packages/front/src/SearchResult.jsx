@@ -48,6 +48,7 @@ function SearchResult(props) {
         <div>
             {searchResult.length > 0 ? (
                 <>
+                    <h1 className="movie-header">Showing {searchResult.length + tvSearchResult.length} result(s)</h1>
                     <div className="movie-container">
                         {searchResult.map((movie) => (
                             <Movie key={movie.id} {...movie}/>
