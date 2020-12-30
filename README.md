@@ -1,8 +1,7 @@
-## Movies App
+## MoviDict
 
-API
+The name is a pun from **Moby Dick**. Hence, the whale logo.
+Currently, there is no implementation for the "Book Ticket" button. It is a feature for the upcoming version.
 
-featured : "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&
-api_key=269942df022fac8e94e126c0e90c61ee
-images : "https://image.tmbd.org/t/p/w1280
-search : https://api.themoviesdb.org/3/search/movie?&api_key=269942df022fac8e94e126c0e90c61ee
+All of the data is fetched from [TMDB API](https://www.themoviedb.org/).
+Whale logo is taken from [this link](https://www.behance.net/gallery/65428355/Ocean-Whale-Logo).
